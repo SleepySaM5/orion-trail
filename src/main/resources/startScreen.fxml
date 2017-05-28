@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.sleepysam.view.StartScreenController">
+   <children>
+      <Button fx:id="newGameButton" layoutX="300.0" layoutY="300.0" mnemonicParsing="false" onMousePressed="#handleNewGameButton" prefHeight="40.0" prefWidth="200.0" text="Új Játék">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label layoutX="50.0" layoutY="110.0" prefHeight="190.0" prefWidth="700.0" text="Egy felfedező űrhajó hiperugrás közben elvétette célját, emiatt a galaxis egyik legveszélyesebb területére került. A feladatod, hogy az űrhajót biztonságban eljuttasd a legközelebbi hiperugró állomáshoz." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Button fx:id="easyDifficultyButton" layoutX="280.0" layoutY="498.0" mnemonicParsing="false" onMousePressed="#handleEasyDifficultyButton" text="Easy" />
+      <Button fx:id="mediumDifficultyButton" layoutX="370.0" layoutY="498.0" mnemonicParsing="false" onMousePressed="#handleMediumDifficultyButton" text="Medium" />
+      <Button fx:id="hardDifficultyButton" layoutX="479.0" layoutY="498.0" mnemonicParsing="false" onMousePressed="#handleHardDifficultyButton" text="Hard" />
+      <Label layoutX="346.0" layoutY="461.0" text="Select your difficulty:" />
+      <Label layoutX="324.0" layoutY="350.0" text="Current difficulty:" />
+      <Label fx:id="currentDifficultyLabel" layoutX="428.0" layoutY="350.0" text="Label" />
+   </children>
+</AnchorPane>

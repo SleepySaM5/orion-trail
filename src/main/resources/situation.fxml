@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.sleepysam.view.SituationController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Position:" />
+      <Label fx:id="positionLabel" layoutX="66.0" layoutY="14.0" text="Label" />
+      <Label layoutX="146.0" layoutY="14.0" text="Crew:" />
+      <Label fx:id="crewLabel" layoutX="147.0" layoutY="32.0" text="Label" />
+      <Label layoutX="211.0" layoutY="14.0" text="Food:" />
+      <Label fx:id="foodLabel" layoutX="212.0" layoutY="32.0" text="Label" />
+      <Label layoutX="266.0" layoutY="14.0" text="Fuel:" />
+      <Label fx:id="fuelLabel" layoutX="265.0" layoutY="32.0" text="Label" />
+      <Button fx:id="option1Button" layoutX="187.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleOption1Button" prefHeight="65.0" prefWidth="426.0" text="Button" wrapText="true" />
+      <Button fx:id="option2Button" layoutX="187.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleOption2Button" prefHeight="65.0" prefWidth="426.0" text="Button" wrapText="true" />
+      <Button fx:id="option3Button" layoutX="187.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleOption3Button" prefHeight="65.0" prefWidth="426.0" text="Button" wrapText="true" />
+      <Label fx:id="flavorTextLabel" alignment="CENTER" layoutX="50.0" layoutY="110.0" prefHeight="190.0" prefWidth="700.0" text="Label" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+   </children>
+</AnchorPane>
