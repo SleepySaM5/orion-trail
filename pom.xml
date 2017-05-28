@@ -19,10 +19,19 @@
             </roles>
         </developer>
     </developers>
+    <scm>
+        <url>https://github.com/samuraay/orion-trail.git</url>
+    </scm>
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
     <inceptionYear>2017</inceptionYear>
     <organization>
     <name>University of Debrecen</name>
-</organization>
+    </organization>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
