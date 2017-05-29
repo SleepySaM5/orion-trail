@@ -52,7 +52,7 @@ public class StartScreenController implements Initializable {
         Main.game.setWinGoal(5);
         Main.game.resetGame();
 
-        currentDifficultyLabel.setText("Easy");
+        currentDifficultyLabel.setText("Könnyű");
     }
 
     @FXML
@@ -64,7 +64,7 @@ public class StartScreenController implements Initializable {
         Main.game.setWinGoal(7);
         Main.game.resetGame();
 
-        currentDifficultyLabel.setText("Medium");
+        currentDifficultyLabel.setText("Közepes");
     }
 
     @FXML
@@ -76,7 +76,7 @@ public class StartScreenController implements Initializable {
         Main.game.setWinGoal(9);
         Main.game.resetGame();
 
-        currentDifficultyLabel.setText("Hard");
+        currentDifficultyLabel.setText("Nehéz");
     }
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -86,6 +86,6 @@ public class StartScreenController implements Initializable {
         Main.game.setWinGoal(5);
         Main.game.resetGame();
 
-        currentDifficultyLabel.setText("Easy");
+        currentDifficultyLabel.setText("Könnyű");
     }
 }

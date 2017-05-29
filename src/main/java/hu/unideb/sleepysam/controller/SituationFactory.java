@@ -11,11 +11,9 @@ import java.util.Random;
 public class SituationFactory {
     public static Situation getRandomSituation() {
         Random rand = new Random();
-        int r = rand.nextInt(6);
-        int index = 0;
+        int r = rand.nextInt(10);
 
         switch (r) {
-            // Aszteroida
             case 0: {
                 return new Situation(
                         "Az utad egy aszteroida-mezőn keresztül vezet. Áthaladni rajta veszélyes, de az a legrövidebb út, viszont van más lehetőség is.",
@@ -36,10 +34,10 @@ public class SituationFactory {
                         )
                 );
             }
-            // Benzinkut_jo
+
             case 1: {
                 return new Situation(
-                        "Egy intergalaktikus benzinkúthoz érkeztél, mely a Scion 7 bolygó körül kering.",
+                        "Egy intergalaktikus benzinkúthoz érkeztél, mely egy gázóriás körül körül kering.",
                         new Option(
                                 "Csak arra koncentrálsz, hogy benzint vegyél.",
                                 "Továbbhaladsz...",
@@ -57,10 +55,10 @@ public class SituationFactory {
                         )
                 );
             }
-            //Benzinkut_rossz
+
             case 2: {
                 return new Situation(
-                        "Egy intergalaktikus benzinkúthoz érkeztél, mely a Xeutera bolygó körül kering.",
+                        "Egy intergalaktikus benzinkúthoz érkeztél, mely egy Föld-szerű bolygó körül kering.",
                         new Option(
                                 "Csak arra koncentrálsz, hogy benzint vegyél.",
                                 "Továbbhaladsz...",
@@ -78,10 +76,10 @@ public class SituationFactory {
                         )
                 );
             }
-            // Benzinkut_tamadas
+
             case 3: {
                 return new Situation(
-                        "Egy intergalaktikus benzinkúthoz érkeztél, mely a Frutoria bolygó körül kering. A benzinkút éppen kalózok támadása alatt áll.",
+                        "Egy intergalaktikus benzinkúthoz érkeztél, mely egy törpebolygó körül kering. A benzinkút éppen kalózok támadása alatt áll.",
                         new Option(
                                 "Az egész legénységgel közbeavatkoztok, megpróbáljátok megállítani a kalózokat.",
                                 "Sikeresen megállítottátok a támadást, viszont ez a legénység egy emberének életébe került. A munkások megjutalmaznak hősies cselekdeteidért. ",
@@ -99,7 +97,7 @@ public class SituationFactory {
                         )
                 );
             }
-            // Urallomas
+
             case 4: {
                 return new Situation(
                         "Egy Intergalaktikus Űrállomás jelét fogja be a radar. Úgy döntesz, hogy szükség van egy pihenőre egy biztonságos helyen.",
@@ -120,7 +118,7 @@ public class SituationFactory {
                         )
                 );
             }
-            // Kocsma
+
             case 5: {
                 return new Situation(
                         "A legénységnek kijár a szórakozás. Útbaejtesz egy űrkocsmát.",
@@ -141,6 +139,91 @@ public class SituationFactory {
                         )
                 );
             }
+
+            case 6: {
+                return new Situation(
+                        "Űrkalózok támadják meg a hajót!",
+                        new Option(
+                                "Elbújsz az űrhajón, azt remélve, hogy senkit sem találnak meg.",
+                                "A kalózok nem találják meg a legénység egyik tagját sem, viszont kizsákmányolják az űrhajót.",
+                                -1, -1, 0
+                        ),
+                        new Option(
+                                "Az űrt választod a csata helyszínéül.",
+                                "Hosszas kűzdelem után te nyersz, ez viszont rengeteg üzemanyagodba került.",
+                                -2, 0, 0
+                        ),
+                        new Option(
+                                "Megpróbálod csapdába csalni a kalózokat, így engeded, hogy átszálljanak a fedélzetre.",
+                                "A kalózokat sikeresen legyőzted, de sajnos a harc közben a legénység egyik tagja életét vesztette.",
+                                0, 0, -1
+                        )
+                );
+            }
+
+            case 7: {
+                return new Situation(
+                        "Űrkalózok támadják meg a hajót!",
+                        new Option(
+                                "Elbújsz az űrhajón, azt remélve, hogy senkit sem találnak meg.",
+                                "A kalózok nem találják meg a legénység egyik tagját sem, viszont kizsákmányolják az űrhajót.",
+                                -1, -1, 0
+                        ),
+                        new Option(
+                                "Az űrt választod a csata helyszínéül.",
+                                "Hosszas kűzdelem után te nyersz, ez viszont rengeteg üzemanyagodba került.",
+                                -2, 0, 0
+                        ),
+                        new Option(
+                                "Megpróbálod csapdába csalni a kalózokat, így engeded, hogy átszálljanak a fedélzetre.",
+                                "A kalózokat sikeresen legyőzted, sőt, csata közben az ő legénységük egyik tagja megadja magát és áttér a te oldaladra.",
+                                0, 0, 1
+                        )
+                );
+            }
+
+            case 8: {
+                return new Situation(
+                        "Egy űrhajó vészjelét fogja be a radar. Nem észlel életjeleket a számítógép.",
+                        new Option(
+                                "Felfedezed az űrhajót a legénységgel.",
+                                "A vészjelzés egy csapda volt, az űrhajó időközben önmegsemmisítő módra kapcsolt. El próbáltok menekülni, de a legénység egyik tagja elesik, így a robbanás őt közvetlenül éri.",
+                                0, 0, -1
+                        ),
+                        new Option(
+                                "Az űrhajó benzintartályát kívülről lecsatolod.",
+                                "A művelet sikeres volt, ez a benzintartály úgysem kell már senkinek.",
+                                1, 0, 0
+                        ),
+                        new Option(
+                                "Figyelmen kívül hagyod a jelzést.",
+                                "Folytatod az utad.",
+                                0, 0, 0
+                        )
+                );
+            }
+
+            case 9: {
+                return new Situation(
+                        "Egy űrhajó vészjelét fogja be a radar. Életjeleket észlel a számítógép.",
+                        new Option(
+                                "Felfedezed az űrhajót a legénységgel.",
+                                "A vészjelzést a legénység utolsó életben maradt tagja küldte. Ellátjátok sérüléseit, majd csatlakozik a legénységhez",
+                                0, 0, 1
+                        ),
+                        new Option(
+                                "Az űrhajó benzintartályát kívülről csatolod le.",
+                                "A művelet sikeres volt, ez a benzintartály úgysem kell már senkinek.",
+                                1, 0, 0
+                        ),
+                        new Option(
+                                "Figyelmen kívül hagyod a jelzést.",
+                                "Folytatod az utad.",
+                                0, 0, 0
+                        )
+                );
+            }
+
         }
         return null;
     }
