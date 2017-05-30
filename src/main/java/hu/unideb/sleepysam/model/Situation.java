@@ -29,14 +29,33 @@ THE SOFTWARE.
 import hu.unideb.sleepysam.model.Option;
 
 /**
- * Created by vtibi on 5/21/2017.
+ * Represents the Situation object.
  */
 public class Situation {
+    /**
+     * The flavor text of a situation.
+     */
     private final String flavorText;
+    /**
+     * The text of the first option in a situation.
+     */
     private final Option option1;
+    /**
+     * The text of the second option in a situation.
+     */
     private final Option option2;
+    /**
+     * The text of the third option in a situation.
+     */
     private final Option option3;
 
+    /**
+     * The constructor method of the Situation class.
+     * @param flavorText the flavor text
+     * @param option1 the first options text
+     * @param option2 the second options text
+     * @param option3 the third options text
+     */
     public Situation(String flavorText, Option option1, Option option2, Option option3) {
         this.flavorText = flavorText;
         this.option1 = option1;
@@ -44,18 +63,34 @@ public class Situation {
         this.option3 = option3;
     }
 
+    /**
+     * Getter method for the flavor text.
+     * @return the flavorText
+     */
     public String getFlavorText() {
         return flavorText;
     }
 
+    /**
+     * Getter method for the first option.
+     * @return the option1
+     */
     public Option getOption1() {
         return option1;
     }
 
+    /**
+     * Getter method for the second option.
+     * @return the option2
+     */
     public Option getOption2() {
         return option2;
     }
 
+    /**
+     * Getter method for the third option.
+     * @return the option3
+     */
     public Option getOption3() {
         return option3;
     }

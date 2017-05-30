@@ -27,15 +27,42 @@ THE SOFTWARE.
  */
 
 /**
- * Created by vtibi on 5/21/2017.
+ * Represents the Option object.
  */
 public class Option {
+    /**
+     * The text of an option.
+     */
     private final String optionText;
+
+    /**
+     * The text of the chosen options outcome.
+     */
     private final String outcomeText;
+
+    /**
+     * The change in the {@link hu.unideb.sleepysam.controller.Game#fuel} resource based on the chosen option.
+     */
     private final int outcomeFuelDiff;
+
+    /**
+     * The change in the {@link hu.unideb.sleepysam.controller.Game#food} resource based on the chosen option.
+     */
     private final int outcomeFoodDiff;
+
+    /**
+     * The change in the {@link hu.unideb.sleepysam.controller.Game#crew} resource based on the chosen option.
+     */
     private final int outcomeCrewDiff;
 
+    /**
+     * Constructor method of the Option class.
+     * @param optionText the optionText
+     * @param outcomeText the outcomeText
+     * @param outcomeFuelDiff the outcomeFuelDiff
+     * @param outcomeFoodDiff the outcomeFoodDiff
+     * @param outcomeCrewDiff the outcomeCrewDiff
+     */
     public Option(String optionText, String outcomeText, int outcomeFuelDiff, int outcomeFoodDiff, int outcomeCrewDiff) {
         this.optionText = optionText;
         this.outcomeText = outcomeText;
@@ -44,22 +71,42 @@ public class Option {
         this.outcomeCrewDiff = outcomeCrewDiff;
     }
 
+    /**
+     * Getter method for the optionText.
+     * @return the optionText
+     */
     public String getOptionText() {
         return optionText;
     }
 
+    /**
+     * Getter method for the outcomeText.
+     * @return the outcomeText
+     */
     public String getOutcomeText() {
         return outcomeText;
     }
 
+    /**
+     * Getter method for the outcomeFuelDiff.
+     * @return the outcomeFuelDiff
+     */
     public int getOutcomeFuelDiff() {
         return outcomeFuelDiff;
     }
 
+    /**
+     * Getter method for the outcomeFoodDiff.
+     * @return the outcomeFoodDiff
+     */
     public int getOutcomeFoodDiff() {
         return outcomeFoodDiff;
     }
 
+    /**
+     * Getter method for the outcomeCrewDiff.
+     * @return the outcomeCrewDiff
+     */
     public int getOutcomeCrewDiff() {
         return outcomeCrewDiff;
     }

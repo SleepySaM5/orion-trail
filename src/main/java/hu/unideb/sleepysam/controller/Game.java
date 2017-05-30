@@ -30,9 +30,12 @@ import hu.unideb.sleepysam.model.Option;
 import hu.unideb.sleepysam.model.Situation;
 
 /**
- * Created by vtibi on 5/10/2017.
+ * This class contains the most important fields and methods for tha game itself.
  */
 public class Game {
+    /**
+     * This object is used to calculate the changes in the resources based on the chosen option for a situation.
+     */
     private Option lastChosenOption;
 
     /**
@@ -79,16 +82,31 @@ public class Game {
      */
     private int victoryCounter = 0;
 
+    /**
+     * This object is used to display a situation on each screen after pressing the new game button on the starting screen.
+     * This is achieved with the help of the {@link SituationFactory#getRandomSituation()} method.
+     */
     private Situation currentSituation;
 
+    /**
+     * Constructor method of the Game class.
+     */
     public Game() {
         currentSituation = SituationFactory.getRandomSituation();
     }
 
+    /**
+     * Getter method for the currentSituation.
+     * @return the currentSituation
+     */
     public Situation getCurrentSituation() {
         return currentSituation;
     }
 
+    /**
+     * Setter method for the currentSituation.
+     * @param currentSituation the currentSituation
+     */
     public void setCurrentSituation(Situation currentSituation) {
         this.currentSituation = currentSituation;
     }
@@ -132,7 +150,7 @@ public class Game {
     /**
      * Getter method for the food.
      *
-     * @return
+     * @return the food
      */
     public int getFood() {
         return food;
@@ -149,7 +167,7 @@ public class Game {
 
     /**
      * Getter method for the victory counter.
-     * @return
+     * @return the victoryCounter
      */
     public int getVictoryCounter() {
         return victoryCounter;
@@ -162,10 +180,18 @@ public class Game {
         this.victoryCounter++;
     }
 
+    /**
+     * Getter method for the lastChosenOption.
+     * @return the lastChosenOption
+     */
     public Option getLastChosenOption() {
         return lastChosenOption;
     }
 
+    /**
+     * Setter method for the lastChosenOption.
+     * @param lastChosenOption the lastChosenOption
+     */
     public void setLastChosenOption(Option lastChosenOption) {
         this.lastChosenOption = lastChosenOption;
     }
@@ -194,14 +220,27 @@ public class Game {
         this.startFood = startFood;
     }
 
+    /**
+     * Getter method for the winGoal.
+     * @return the winGoal
+     */
     public int getWinGoal() {
         return winGoal;
     }
 
+    /**
+     * Setter method for the winGoal.
+     * @param winGoal the winGoal
+     */
     public void setWinGoal(int winGoal) {
         this.winGoal = winGoal;
     }
 
+    /**
+     * This method applies the changes to the current amount of resources based on the {@link hu.unideb.sleepysam.model.Option} chosen.
+     * See more on {@link Option#getOutcomeCrewDiff()}.
+     * @param chosenOption the chosenOption
+     */
     public void applyChosenOption(Option chosenOption) {
         setLastChosenOption(chosenOption);
         setFood(getFood() + chosenOption.getOutcomeFoodDiff());

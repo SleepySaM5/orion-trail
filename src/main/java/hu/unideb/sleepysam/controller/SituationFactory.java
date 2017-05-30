@@ -32,9 +32,13 @@ import hu.unideb.sleepysam.model.Situation;
 import java.util.Random;
 
 /**
- * Created by vtibi on 5/21/2017.
+ * This class is used to generate new situations each time the Next button is pressed on an Outcome screen.
  */
 public class SituationFactory {
+    /**
+     * Generates a new random {@link hu.unideb.sleepysam.model.Situation}.
+     * @return the random situation
+     */
     public static Situation getRandomSituation() {
         Random rand = new Random();
         int r = rand.nextInt(10);
