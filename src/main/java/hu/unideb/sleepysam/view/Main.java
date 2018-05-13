@@ -42,16 +42,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -62,6 +59,28 @@ public class Main extends Application {
     private final String situationsDataFilePath = "situations.data";
     private final String shipPrefixesFilePath = "shipPrefixes.data";
     private final String shipSuffixesFilePath = "shipSuffixes.data";
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+
+        loadSituationsFromJson();
+        loadShipNames();
+        game = new Game();
+        game.setDifficulty(GameDifficulty.NORMAL);
+        SituationFactory factory = new SituationFactory();
+        game.setCurrentSituation(factory.getRandomSituation());
+        testFunction();
+
+        Parent root = FXMLLoader.load((getClass().getClassLoader().getResource("welcomeScreen.fxml")));
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Orion Trail");
+        scene.getStylesheets().add("style.css");
+        primaryStage.setScene(scene);
+        logger.info("Starting program");
+        game.resetGame();
+        primaryStage.show();
+    }
 
     private void loadShipNames(){
         ArrayList<String> shipNamePrefixes = new ArrayList<>();
@@ -78,13 +97,13 @@ public class Main extends Application {
             Type listType = new TypeToken<ArrayList<String>>(){}.getType();
             shipNamePrefixes = gson.fromJson(jsonContents, listType);
 
-            logger.info("Ship names pref: " + shipNamePrefixes);
+            //logger.info("Ship names pref: " + shipNamePrefixes);
         } catch (IOException e) {
             logger.error(e.getMessage());
         } catch (Exception e) {
             logger.error("Exception while reading filenames");
         }
-        logger.info("Ship names pref: " + jsonContents);
+        //logger.info("Ship names pref: " + jsonContents);
         logger.info("Ship names pref: " + shipNamePrefixes);
 
 
@@ -102,9 +121,8 @@ public class Main extends Application {
         } catch (Exception e) {
             logger.error("Exception while reading filenames");
         }
-        logger.info("Ship names pref: " + jsonContents);
+        //SSlogger.info("Ship names pref: " + jsonContents);
         logger.info("Ship names suff: " + shipNameSuffixes);
-
 
         SituationFactory.setShipPrefixes(shipNamePrefixes);
         SituationFactory.setShipSuffixes(shipNameSuffixes);
@@ -134,39 +152,17 @@ public class Main extends Application {
         Game.setSituationTemplates(situations);
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        game = new Game();
-        game.setDifficulty(GameDifficulty.NORMAL);
-        SituationFactory factory = new SituationFactory();
-        game.setCurrentSituation(factory.getRandomSituation());
-        testFunction();
-
-        loadSituationsFromJson();
-        loadShipNames();
-
-        Parent root = FXMLLoader.load((getClass().getClassLoader().getResource("welcomeScreen.fxml")));
-        Scene scene = new Scene(root);
-
-        primaryStage.setTitle("Orion Trail");
-        scene.getStylesheets().add("style.css");
-        primaryStage.setScene(scene);
-        logger.info("Starting program");
-        game.resetGame();
-        primaryStage.show();
-    }
-
     public void testFunction() {
         List<FlavorTextTemplate> testFlavors = new ArrayList<>();
         testFlavors.add(new FlavorTextTemplate("asd %s", "spaceship"));
 
         Situation testSituation = new Situation(
-                "random adat", new FlavorTextTemplate("asd %s", "spaceship"),
-                new Option("option1", "congrats u dick",
+                new FlavorTextTemplate("asd %s", "spaceship"),
+                new Option("option1", "congrats",
                         1, 1, 1),
                 new Option("option2", "absolute unit",
                         2, 2, 2),
-        new Option("option3", "congrats u cunt",
+                new Option("option3", "congrats u cunt",
                 3, 3, 3));
 
         GsonBuilder testBuilder = new GsonBuilder();
@@ -186,7 +182,7 @@ public class Main extends Application {
         System.out.println(asdfSituation);
     }
 
-    private void appStyles(Stage stage, Scene scene) {
+    private void appFont(Stage stage, Scene scene) {
         Font.loadFont(getClass().getResourceAsStream("Exo2-Regular.ttf"), 12);
     }
 

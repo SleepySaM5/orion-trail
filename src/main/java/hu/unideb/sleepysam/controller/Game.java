@@ -45,11 +45,6 @@ public class Game {
     private Option lastChosenOption;
 
     /**
-     * The current amount of the health resource.
-     */
-    private int health;
-
-    /**
      * The current amount of the crew resource.
      */
     private int crew;
@@ -329,7 +324,6 @@ public class Game {
     public String toString() {
         return "Game{" +
                 "lastChosenOption=" + lastChosenOption +
-                ", health=" + health +
                 ", crew=" + crew +
                 ", fuel=" + fuel +
                 ", food=" + food +

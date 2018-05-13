@@ -84,29 +84,13 @@ public class StartScreenController implements Initializable {
     }
 
     @FXML
-    private void handleEasyDifficultyButton() {
-        logger.info("Easy difficulty chosen.");
-        //todo remove this
-        Main.game.setStartCrew(9);
-        Main.game.setStartFuel(9);
-        Main.game.setStartFood(9);
-        Main.game.setWinGoal(5);
-        Main.game.resetGame();
-        game.setDifficulty(GameDifficulty.NORMAL);
-
-
-        currentDifficultyLabel.setText("Könnyű");
-    }
-
-    @FXML
-    private void handleMediumDifficultyButton() {
+    private void handleNormalDifficultyButton() {
         logger.info("Medium difficulty chosen.");
         Main.game.setStartCrew(6);
         Main.game.setStartFuel(6);
         Main.game.setStartFood(6);
         Main.game.setWinGoal(7);
         Main.game.resetGame();
-        // TODO: REFACTOR FAM TO DIFFICULTY
         game.setDifficulty(GameDifficulty.NORMAL);
 
         currentDifficultyLabel.setText("Közepes");
@@ -168,7 +152,7 @@ public class StartScreenController implements Initializable {
             e.printStackTrace();
         } catch (Exception e) {
             System.out.println("Exception");
-            // logger.debug("The exception: " + e.getMessage());
+            logger.debug("The exception: " + e.getMessage());
         }
     }
 

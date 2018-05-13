@@ -34,6 +34,7 @@ import hu.unideb.sleepysam.model.Situation;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static hu.unideb.sleepysam.view.Main.game;
 import static hu.unideb.sleepysam.view.Main.logger;
@@ -45,23 +46,27 @@ public class SituationFactory {
 
     // private static
 
-    private static ArrayList<String> shipPrefixes;
-    private static ArrayList<String> shipSuffixes;
-
-    //public Situation(FlavorTextTemplate flavorTextTemplate, Option option1, Option option2, Option option3) {
+    private static ArrayList<String> shipPrefixes = new ArrayList<>();;
+    private static ArrayList<String> shipSuffixes = new ArrayList<>();;
 
     private Situation fightSituation = new Situation(
-            new FlavorTextTemplate("You have encountered the %s. It approaches with a frightening speed.",
+            new FlavorTextTemplate("A radar befogta a %s jelét. Izzítja a lézerágyúit, készülj a csatára!",
                     getRandomShipName()),
-            new Option("Attack!", "It atteck.",
-                    1, 1, 1),
-            new Option("Defend!", "It protecc.",
-                    1, 1, 1),
-            new Option("Flee!", "It also flee.",
-                    1, 1, 1));
+            new Option("Támadás!", "Sikeresen megtámadtad az ellenséges hajót.",
+                    -1, -1, -1),
+            new Option("Védekezés!", "Sikerült elkerülni az ellenséges hajó támadásait.",
+                    -3, 0, 0),
+            new Option("Menekülés!", "It also flee.",
+                    0, 0, 0));
 
     private String getRandomShipName() {
-        return null;
+        logger.info("Ship prefixes: " + shipPrefixes.toString());
+        logger.info("Ship suffixes: " + shipSuffixes.toString());
+        int randomNum1 = ThreadLocalRandom.current().nextInt(0, shipPrefixes.size());
+        int randomNum2 = ThreadLocalRandom.current().nextInt(0, shipSuffixes.size());
+        String randomShipName = shipPrefixes.get(randomNum1) + " " + shipSuffixes.get(randomNum2);
+
+        return randomShipName;
     }
 
     private static int index = 0;
@@ -75,6 +80,8 @@ public class SituationFactory {
         logger.info("Getrandom situation, game: " + game.toString());
 
         Situation situation = new Situation();
+
+        logger.info("random ship: " + getRandomShipName());
 
         // NORMAL 3 szituacionkent fight, HARD 2 szituacionkent fight
         logger.info("Getrandom situation, game: " + game.toString());
@@ -104,7 +111,6 @@ public class SituationFactory {
                 index++;
             }
         }
-
         return situation;
     }
 
@@ -114,6 +120,7 @@ public class SituationFactory {
 
     public static void setShipPrefixes(ArrayList<String> shipPrefixes) {
         SituationFactory.shipPrefixes = shipPrefixes;
+        logger.info("Prefixes set!");
     }
 
     public static ArrayList<String> getShipSuffixes() {

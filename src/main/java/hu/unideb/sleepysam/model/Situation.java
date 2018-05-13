@@ -50,11 +50,6 @@ public class Situation {
     }
 
     /**
-     * The flavor text of a situation.
-     */
-    private String flavorMessage;
-
-    /**
      * The text of the first option in a situation.
      */
     private Option option1;
@@ -80,34 +75,8 @@ public class Situation {
         this.option3 = new Option(copySituation.getOption3());
     }
 
-    //todo get rid of this shit:
-    public Situation(String flavorText, FlavorTextTemplate flavorTextTemplate, Option option1, Option option2, Option option3) {
-        this.flavorText = flavorText;
-        this.flavorTextTemplate = flavorTextTemplate;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
-    }
-
     public Situation(FlavorTextTemplate flavorTextTemplate, Option option1, Option option2, Option option3) {
-        this.flavorText = flavorText;
         this.flavorTextTemplate = flavorTextTemplate;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
-    }
-
-
-    /**
-     * The constructor method of the Situation class.
-     *
-     * @param flavorText the flavor text
-     * @param option1    the first options text
-     * @param option2    the second options text
-     * @param option3    the third options text
-     */
-    public Situation(String flavorText, Option option1, Option option2, Option option3) {
-        this.flavorText = flavorText;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
@@ -157,8 +126,8 @@ public class Situation {
     public String toString() {
         return "Situation{" +
                 "flavorText='" + flavorText + '\'' +
-                ", flavorTextTemplates=" + flavorTextTemplate +
-                ", flavorMessage='" + flavorMessage + '\'' +
+                ", flavorTextTemplate=" + flavorTextTemplate +
+                ", flavorMessage='" + '\'' +
                 ", option1=" + option1 +
                 ", option2=" + option2 +
                 ", option3=" + option3 +

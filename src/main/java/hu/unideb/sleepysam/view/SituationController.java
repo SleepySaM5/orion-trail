@@ -28,6 +28,7 @@ THE SOFTWARE.
  */
 
 import hu.unideb.sleepysam.controller.LoadManager;
+import hu.unideb.sleepysam.model.Situation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -128,12 +129,20 @@ public class SituationController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         game.incrementVictoryCounter();
 
+        System.out.println("The current sit: " + game.getCurrentSituation().toString());
+        System.out.println("The current sit: " + game.getCurrentSituation().getFlavorTextTemplate().toString());
+
         positionLabel.setText(String.valueOf(game.getVictoryCounter()));
         winGoalLabel.setText(" / " + String.valueOf(game.getWinGoal()));
         crewLabel.setText(String.valueOf(game.getCrew()));
         foodLabel.setText(String.valueOf(game.getFood()));
         fuelLabel.setText(String.valueOf(game.getFuel()));
-        flavorTextLabel.setText(game.getCurrentSituation().getFlavorTextTemplate().getPattern());
+        if(game.getCurrentSituation().getFlavorTextTemplate().getContent() == null) {
+            flavorTextLabel.setText(game.getCurrentSituation().getFlavorTextTemplate().getPattern());
+        } else {
+            flavorTextLabel.setText(String.format(game.getCurrentSituation().getFlavorTextTemplate().getPattern(),
+                                                    game.getCurrentSituation().getFlavorTextTemplate().getContent()));
+        }
         option1Button.setText(game.getCurrentSituation().getOption1().getOptionText());
         option2Button.setText(game.getCurrentSituation().getOption2().getOptionText());
         option3Button.setText(game.getCurrentSituation().getOption3().getOptionText());

@@ -1,7 +1,5 @@
 package hu.unideb.sleepysam.model;
 
-import java.util.List;
-
 public class FlavorTextTemplate {
     String pattern;
     String content;
@@ -25,5 +23,13 @@ public class FlavorTextTemplate {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "FlavorTextTemplate{" +
+                "pattern='" + pattern + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

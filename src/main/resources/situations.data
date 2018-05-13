@@ -1,19 +1,100 @@
 [
   {
-    "flavorText": "Egy intergalaktikus benzinkúthoz érkeztél, mely egy törpebolygó körül kering. A benzinkút éppen kalózok támadása alatt áll.",
-    "flavorTextTemplates": {"pattern": "aggresive cute sweet hard penis", "content": ""},
+    "flavorText": "",
+    "flavorTextTemplate": {"pattern": "Egy űrhajó vészjelét fogja be a radar. Életjeleket észlel a számítógép.", "content": ""},
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Felfedezed az űrhajót a legénységgel.",
+      "outcomeText": "A vészjelzést a legénység utolsó életben maradt tagja küldte. Ellátjátok sérüléseit, majd csatlakozik a legénységhez.",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 1
+    },
+    "option2": {
+      "optionText": "Az űrhajó benzintartályát kívülről csatolod le.",
+      "outcomeText": "A művelet sikeres volt, ez a benzintartály úgysem kell már senkinek.",
+      "outcomeFuelDiff": 1,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    },
+    "option3": {
+      "optionText": "Figyelmen kívül hagyod a jelzést.",
+      "outcomeText": "Folytatod az utad.",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    }
+  },
+  {
+    "flavorText": "",
+    "flavorTextTemplate": {"pattern": "Egy intergalaktikus benzinkúthoz érkeztél, mely egy gázóriás körül körül kering.", "content": ""},
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Csak arra koncentrálsz, hogy benzint vegyél.",
+      "outcomeText": "Továbbhaladsz...",
+      "outcomeFuelDiff": 1,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    },
+    "option2": {
+      "optionText": "Szerencsére szimpatizált veled a benzinkutas, így engedett a benzin árából.",
+      "outcomeText": "",
+      "outcomeFuelDiff": 2,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    },
+    "option3": {
+      "optionText": "Úgy ítéled meg, hogy nincs szükséged benzinre.",
+      "outcomeText": "Továbbhaladsz...",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    }
+  },
+  {
+    "flavorText": "",
+    "flavorTextTemplate": {"pattern": "Egy intergalaktikus benzinkúthoz érkeztél, mely egy Föld-szerű bolygó körül kering.", "content": ""},
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Csak arra koncentrálsz, hogy benzint vegyél.",
+      "outcomeText": "Továbbhaladsz...",
+      "outcomeFuelDiff": 1,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    },
+    "option2": {
+      "optionText": "Megpróbálsz lealkudni a benzin árából.",
+      "outcomeText": "A kutas nem veszi jó néven ezt. Hívja a biztonságiakat, azok pedig kidobnak az állomásról.",
+      "outcomeFuelDiff": -1,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    },
+    "option3": {
+      "optionText": "Úgy ítéled meg, hogy nincs szükséged benzinre.",
+      "outcomeText": "Továbbhaladsz...",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    }
+  },
+  {
+    "flavorText": "",
+    "flavorTextTemplate": {"pattern": "Egy intergalaktikus benzinkúthoz érkeztél, mely egy törpebolygó körül kering. A benzinkút éppen kalózok támadása alatt áll.", "content": ""},
     "difficulty": null,
     "flavorMessage": null,
     "option1": {
       "optionText": "Az egész legénységgel közbeavatkoztok, megpróbáljátok megállítani a kalózokat.",
-      "outcomeText": "Sikeresen megállítottátok a támadást, viszont ez a legénység egy emberének életébe került. A munkások megjutalmaznak hősies cselekdeteidért. ",
+      "outcomeText": "Sikeresen megállítottátok a támadást, viszont ez a legénység egy emberének életébe került. A munkások megjutalmaznak hősies cselekdeteidért.",
       "outcomeFuelDiff": 0,
       "outcomeFoodDiff": 0,
       "outcomeCrewDiff": -1
     },
     "option2": {
       "optionText": "Megpróbálod diplomatikusan elrendezni a konfliktust.",
-      "outcomeText": "Sikeresen meggyőzöd a kalózokat arról, hogy térjenek jó útra. Elhagyják az állomást. A munkások megjutalmaznak hősies cselekedeteidért. ",
+      "outcomeText": "Sikeresen meggyőzöd a kalózokat arról, hogy térjenek jó útra. Elhagyják az állomást. A munkások megjutalmaznak hősies cselekedeteidért.",
       "outcomeFuelDiff": 0,
       "outcomeFoodDiff": 1,
       "outcomeCrewDiff": 0
@@ -21,6 +102,141 @@
     "option3": {
       "optionText": "Nem avatkozol közbe, folytatod utadat.",
       "outcomeText": "Továbbhaladsz...",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    }
+  },
+  {
+    "flavorText": "",
+    "flavorTextTemplate": {"pattern": "Egy Intergalaktikus Űrállomás jelét fogja be a radar. Úgy döntesz, hogy szükség van egy pihenőre egy biztonságos helyen.", "content": ""},
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Beállsz a sorba az ételcsomag-osztáshoz.",
+      "outcomeText": "Továbbhaladsz...",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 1,
+      "outcomeCrewDiff": 0
+    },
+    "option2": {
+      "optionText": "Megnézed az önkéntesek listáját és kiválasztod az egyik dolgozni vágyó embert.",
+      "outcomeText": "Továbbhaladsz...",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 1
+    },
+    "option3": {
+      "optionText": "Megtöltöd a tankot benzinnel.",
+      "outcomeText": "Továbbhaladsz...",
+      "outcomeFuelDiff": 1,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    }
+  },
+  {
+    "flavorText": "",
+    "flavorTextTemplate": {"pattern": "A legénységnek kijár a szórakozás. Útbaejtesz egy űrkocsmát.", "content": ""},
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Beszélgetésbe elegyedsz a kocsmában lévőkkel.",
+      "outcomeText": "Meghívnak egy közös falatozásra, a maradékot pedig elteszed rosszabb időkre.",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 1,
+      "outcomeCrewDiff": 0
+    },
+    "option2": {
+      "optionText": "Együtt töltöd el az estét a legénységgel.",
+      "outcomeText": "Pohár poharat követ, aminek fejfájós másnaposság a következménye. Ennek a kezelésére pedig extra adag ételre van szükség.",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": -1,
+      "outcomeCrewDiff": 0
+    },
+    "option3": {
+      "optionText": "Hagyod, hogy a legénység szórakozzon.",
+      "outcomeText": "Az este során a hangulat bedurvul, a legénység egyik viccét túl komolyan veszik. Kocsmai verekedés robban ki, mely során az egyik embered életét is veszti.",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": -1
+    }
+  },
+  {
+    "flavorText": "",
+    "flavorTextTemplate": {"pattern": "Űrkalózok támadják meg a hajót!", "content": ""},
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Elbújsz az űrhajón, azt remélve, hogy senkit sem találnak meg.",
+      "outcomeText": "A kalózok nem találják meg a legénység egyik tagját sem, viszont kizsákmányolják az űrhajót.",
+      "outcomeFuelDiff": -1,
+      "outcomeFoodDiff": -1,
+      "outcomeCrewDiff": 0
+    },
+    "option2": {
+      "optionText": "Az űrt választod a csata helyszínéül.",
+      "outcomeText": "Hosszas kűzdelem után te nyersz, ez viszont rengeteg üzemanyagodba került.",
+      "outcomeFuelDiff": -2,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    },
+    "option3": {
+      "optionText": "Megpróbálod csapdába csalni a kalózokat, így engeded, hogy átszálljanak a fedélzetre.",
+      "outcomeText": "A kalózokat sikeresen legyőzted, de sajnos a harc közben a legénység egyik tagja életét vesztette.",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": -1
+    }
+  },
+  {
+    "flavorText": "",
+    "flavorTextTemplate": {"pattern": "Űrkalózok támadják meg a hajót!", "content": ""},
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Elbújsz az űrhajón, azt remélve, hogy senkit sem találnak meg.",
+      "outcomeText": "A kalózok nem találják meg a legénység egyik tagját sem, viszont kizsákmányolják az űrhajót.",
+      "outcomeFuelDiff": -1,
+      "outcomeFoodDiff": -1,
+      "outcomeCrewDiff": 0
+    },
+    "option2": {
+      "optionText": "Az űrt választod a csata helyszínéül.",
+      "outcomeText": "Hosszas kűzdelem után te nyersz, ez viszont rengeteg üzemanyagodba került.",
+      "outcomeFuelDiff": -2,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    },
+    "option3": {
+      "optionText": "Megpróbálod csapdába csalni a kalózokat, így engeded, hogy átszálljanak a fedélzetre.",
+      "outcomeText": "A kalózokat sikeresen legyőzted, sőt, csata közben az ő legénységük egyik tagja megadja magát és áttér a te oldaladra.",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 1
+    }
+  },
+  {
+    "flavorText": "",
+    "flavorTextTemplate": {"pattern": "Egy űrhajó vészjelét fogja be a radar. Nem észlel életjeleket a számítógép.", "content": ""},
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Felfedezed az űrhajót a legénységgel.",
+      "outcomeText": "A vészjelzés egy csapda volt, az űrhajó időközben önmegsemmisítő módra kapcsolt. El próbáltok menekülni, de a legénység egyik tagja elesik, így a robbanás őt közvetlenül éri.Az űrhajó benzintartályát kívülről lecsatolod.",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": -1
+    },
+    "option2": {
+      "optionText": "Az űrhajó benzintartályát kívülről lecsatolod.",
+      "outcomeText": "A művelet sikeres volt, ez a benzintartály úgysem kell már senkinek.",
+      "outcomeFuelDiff": 1,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    },
+    "option3": {
+      "optionText": "Figyelmen kívül hagyod a jelzést.",
+      "outcomeText": "Folytatod az utad.",
       "outcomeFuelDiff": 0,
       "outcomeFoodDiff": 0,
       "outcomeCrewDiff": 0
