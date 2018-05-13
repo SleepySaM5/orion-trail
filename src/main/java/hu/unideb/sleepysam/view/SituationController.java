@@ -27,11 +27,13 @@ THE SOFTWARE.
  * #L%
  */
 
+import hu.unideb.sleepysam.controller.LoadManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -40,6 +42,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static hu.unideb.sleepysam.view.Main.game;
 import static hu.unideb.sleepysam.view.Main.logger;
 
 /**
@@ -68,22 +71,35 @@ public class SituationController implements Initializable {
     @FXML
     private void handleOption1Button() {
         logger.info("Option 1 chosen...");
-        Main.game.applyChosenOption(Main.game.getCurrentSituation().getOption1());
+        game.applyChosenOption(game.getCurrentSituation().getOption1());
         changeViewToOutcome();
     }
 
     @FXML
     private void handleOption2Button() {
         logger.info("Option 2 chosen...");
-        Main.game.applyChosenOption(Main.game.getCurrentSituation().getOption2());
+        game.applyChosenOption(game.getCurrentSituation().getOption2());
         changeViewToOutcome();
     }
 
     @FXML
     private void handleOption3Button() {
         logger.info("Option 3 chosen...");
-        Main.game.applyChosenOption(Main.game.getCurrentSituation().getOption3());
+        game.applyChosenOption(game.getCurrentSituation().getOption3());
         changeViewToOutcome();
+    }
+
+    @FXML
+    private void handleSaveGameButton() {
+        LoadManager saveGameManager = new LoadManager();
+
+        saveGameManager.saveGame();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Játék mentése");
+        alert.setHeaderText("");
+        alert.setContentText("Sikeresen elmentetted a játékot!");
+        alert.showAndWait();
     }
 
     public void changeViewToOutcome(){
@@ -96,6 +112,7 @@ public class SituationController implements Initializable {
             loader.<OutcomeController>getController();
             stage = (Stage) option1Button.getScene().getWindow();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add("style.css");
             stage.setScene(scene);
             stage.show();
 
@@ -109,16 +126,16 @@ public class SituationController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Main.game.incrementVictoryCounter();
+        game.incrementVictoryCounter();
 
-        positionLabel.setText(String.valueOf(Main.game.getVictoryCounter()));
-        winGoalLabel.setText(" / " + String.valueOf(Main.game.getWinGoal()));
-        crewLabel.setText(String.valueOf(Main.game.getCrew()));
-        foodLabel.setText(String.valueOf(Main.game.getFood()));
-        fuelLabel.setText(String.valueOf(Main.game.getFuel()));
-        flavorTextLabel.setText(Main.game.getCurrentSituation().getFlavorText());
-        option1Button.setText(Main.game.getCurrentSituation().getOption1().getOptionText());
-        option2Button.setText(Main.game.getCurrentSituation().getOption2().getOptionText());
-        option3Button.setText(Main.game.getCurrentSituation().getOption3().getOptionText());
+        positionLabel.setText(String.valueOf(game.getVictoryCounter()));
+        winGoalLabel.setText(" / " + String.valueOf(game.getWinGoal()));
+        crewLabel.setText(String.valueOf(game.getCrew()));
+        foodLabel.setText(String.valueOf(game.getFood()));
+        fuelLabel.setText(String.valueOf(game.getFuel()));
+        flavorTextLabel.setText(game.getCurrentSituation().getFlavorTextTemplate().getPattern());
+        option1Button.setText(game.getCurrentSituation().getOption1().getOptionText());
+        option2Button.setText(game.getCurrentSituation().getOption2().getOptionText());
+        option3Button.setText(game.getCurrentSituation().getOption3().getOptionText());
     }
 }

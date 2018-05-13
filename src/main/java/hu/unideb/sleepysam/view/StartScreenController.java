@@ -27,19 +27,31 @@ THE SOFTWARE.
  * #L%
  */
 
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import hu.unideb.sleepysam.controller.Game;
+import hu.unideb.sleepysam.model.GameDifficulty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
+import static hu.unideb.sleepysam.view.Main.game;
 import static hu.unideb.sleepysam.view.Main.logger;
 
 /**
@@ -63,6 +75,7 @@ public class StartScreenController implements Initializable {
             loader.<SituationController> getController();
             stage = (Stage) newGameButton.getScene().getWindow();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add("style.css");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -73,11 +86,14 @@ public class StartScreenController implements Initializable {
     @FXML
     private void handleEasyDifficultyButton() {
         logger.info("Easy difficulty chosen.");
+        //todo remove this
         Main.game.setStartCrew(9);
         Main.game.setStartFuel(9);
         Main.game.setStartFood(9);
         Main.game.setWinGoal(5);
         Main.game.resetGame();
+        game.setDifficulty(GameDifficulty.NORMAL);
+
 
         currentDifficultyLabel.setText("Könnyű");
     }
@@ -90,6 +106,8 @@ public class StartScreenController implements Initializable {
         Main.game.setStartFood(6);
         Main.game.setWinGoal(7);
         Main.game.resetGame();
+        // TODO: REFACTOR FAM TO DIFFICULTY
+        game.setDifficulty(GameDifficulty.NORMAL);
 
         currentDifficultyLabel.setText("Közepes");
     }
@@ -102,8 +120,56 @@ public class StartScreenController implements Initializable {
         Main.game.setStartFood(3);
         Main.game.setWinGoal(9);
         Main.game.resetGame();
+        game.setDifficulty(GameDifficulty.HARD);
 
         currentDifficultyLabel.setText("Nehéz");
+    }
+
+    @FXML
+    public void handleLoadGameButton() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Nyissa meg a mentett játékot!");
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Save Files", "*.save"));
+
+        Window stage = newGameButton.getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        String jsonContents = new String();
+        try {
+            jsonContents = FileUtils.readFileToString(selectedFile, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            logger.error("IOException occured while reading: {}",  selectedFile.getPath());
+            logger.error(e.getMessage());
+        }
+        System.out.println(jsonContents);
+
+        Game loadGame;
+        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create();
+        loadGame = gson.fromJson(jsonContents, Game.class);
+
+        game.setChangeGame(loadGame);
+        System.out.println("currentsit : " + game.getCurrentSituation().getFlavorText());
+
+        Parent root;
+        Stage stage1;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("situation.fxml"));
+            root = loader.load();
+            loader.<SituationController>getController();
+            stage1 = (Stage) currentDifficultyLabel.getScene().getWindow();
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("style.css");
+            stage1.setScene(scene);
+            stage1.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Exception");
+            // logger.debug("The exception: " + e.getMessage());
+        }
     }
 
     public void initialize(URL location, ResourceBundle resources) {

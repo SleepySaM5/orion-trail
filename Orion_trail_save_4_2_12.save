@@ -1,0 +1,39 @@
+{
+  "lastChosenOption": null,
+  "health": 0,
+  "crew": 9,
+  "fuel": 9,
+  "food": 9,
+  "startCrew": 9,
+  "startFuel": 9,
+  "startFood": 9,
+  "winGoal": 5,
+  "victoryCounter": 1,
+  "currentSituation": {
+    "flavorText": "Egy intergalaktikus benzinkúthoz érkeztél, mely egy törpebolygó körül kering. A benzinkút éppen kalózok támadása alatt áll.",
+    "flavorTextTemplates": null,
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Az egész legénységgel közbeavatkoztok, megpróbáljátok megállítani a kalózokat.",
+      "outcomeText": "Sikeresen megállítottátok a támadást, viszont ez a legénység egy emberének életébe került. A munkások megjutalmaznak hősies cselekdeteidért. ",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": -1
+    },
+    "option2": {
+      "optionText": "Megpróbálod diplomatikusan elrendezni a konfliktust.",
+      "outcomeText": "Sikeresen meggyőzöd a kalózokat arról, hogy térjenek jó útra. Elhagyják az állomást. A munkások megjutalmaznak hősies cselekedeteidért. ",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 1,
+      "outcomeCrewDiff": 0
+    },
+    "option3": {
+      "optionText": "Nem avatkozol közbe, folytatod utadat.",
+      "outcomeText": "Továbbhaladsz...",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    }
+  }
+}

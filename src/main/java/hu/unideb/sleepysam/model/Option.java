@@ -55,6 +55,22 @@ public class Option {
      */
     private final int outcomeCrewDiff;
 
+    public Option(Option copyOption) {
+        if(copyOption == null){
+            this.optionText = null;
+            this.outcomeText = null;
+            this.outcomeCrewDiff  = 0;
+            this.outcomeFoodDiff = 0;
+            this.outcomeFuelDiff = 0;
+        } else {
+            this.optionText = copyOption.getOptionText();
+            this.outcomeText = copyOption.getOutcomeText();
+            this.outcomeFuelDiff = copyOption.getOutcomeFuelDiff();
+            this.outcomeFoodDiff = copyOption.getOutcomeFoodDiff();
+            this.outcomeCrewDiff = copyOption.getOutcomeCrewDiff();
+        }
+    }
+
     /**
      * Constructor method of the Option class.
      * @param optionText the optionText

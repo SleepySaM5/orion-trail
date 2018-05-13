@@ -56,6 +56,7 @@ public class WinScreenController {
             loader.<StartScreenController> getController();
             stage = (Stage) startGameAgain.getScene().getWindow();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add("style.css");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

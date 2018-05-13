@@ -38,11 +38,11 @@ public class SituationFactoryTest {
     @Test
     public void generatedSituationsAreValid() {
         Situation testSituation;
-        testSituation = SituationFactory.getRandomSituation();
+        SituationFactory factory = new SituationFactory();
+        testSituation = factory.getRandomSituation();
         Assert.assertNotEquals(0, testSituation.getFlavorText().length());
         Assert.assertNotEquals(0, testSituation.getOption1().getOptionText().length());
         Assert.assertNotEquals(0, testSituation.getOption2().getOptionText().length());
         Assert.assertNotEquals(0, testSituation.getOption3().getOptionText().length());
-
     }
 }

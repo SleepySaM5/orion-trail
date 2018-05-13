@@ -1,0 +1,45 @@
+{
+  "lastChosenOption": {
+    "optionText": "Megpróbálsz lealkudni a benzin árából.",
+    "outcomeText": "A kutas nem veszi jó néven ezt. Hívja a biztonságiakat, azok pedig kidobnak az állomásról.",
+    "outcomeFuelDiff": -1,
+    "outcomeFoodDiff": 0,
+    "outcomeCrewDiff": 0
+  },
+  "health": 0,
+  "crew": 9,
+  "fuel": 8,
+  "food": 9,
+  "startCrew": 9,
+  "startFuel": 9,
+  "startFood": 9,
+  "winGoal": 5,
+  "victoryCounter": 2,
+  "currentSituation": {
+    "flavorText": "Az utad egy aszteroida-mezőn keresztül vezet. Áthaladni rajta veszélyes, de az a legrövidebb út, viszont van más lehetőség is.",
+    "flavorTextTemplates": null,
+    "difficulty": null,
+    "flavorMessage": null,
+    "option1": {
+      "optionText": "Áthaladsz az aszteroida-mezőn.",
+      "outcomeText": "A merészségnek ára van. Egy aszteroida nekicsapódott a hajónak és a legénység egy tagja életét vesztette.",
+      "outcomeFuelDiff": 0,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": -1
+    },
+    "option2": {
+      "optionText": "Kikerülöd a mezőt, a hosszabb utat választva.",
+      "outcomeText": "Biztonságban kikerülted a mezőt, de ez az üzemanyag kárára ment.",
+      "outcomeFuelDiff": -2,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    },
+    "option3": {
+      "optionText": "A hajó fegyverzetét felhasználva áttörsz az aszteroidákon.",
+      "outcomeText": "Sikeresen utat törtél az aszteroidák között, így biztonságban áthaladhadtál.",
+      "outcomeFuelDiff": -1,
+      "outcomeFoodDiff": 0,
+      "outcomeCrewDiff": 0
+    }
+  }
+}

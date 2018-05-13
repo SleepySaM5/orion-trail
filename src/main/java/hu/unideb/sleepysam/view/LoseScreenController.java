@@ -27,6 +27,7 @@ THE SOFTWARE.
  * #L%
  */
 
+import hu.unideb.sleepysam.view.StartScreenController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -56,6 +57,7 @@ public class LoseScreenController {
             loader.<StartScreenController> getController();
             stage = (Stage) retryGame.getScene().getWindow();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add("style.css");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

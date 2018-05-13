@@ -35,17 +35,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static hu.unideb.sleepysam.view.Main.logger;
+import static hu.unideb.sleepysam.view.Main.game;
 
 /**
  * Created by vtibi on 5/21/2017.
  */
 public class OutcomeController implements Initializable {
+
+    public static Logger logger = LoggerFactory.getLogger(OutcomeController.class);
+
     @FXML
     private Label crewPastLabel;
 
@@ -78,22 +83,24 @@ public class OutcomeController implements Initializable {
 
     @FXML
     public void handleNextButton() {
-        Main.game.setCurrentSituation(SituationFactory.getRandomSituation());
+        SituationFactory factory = new SituationFactory();
+        game.setCurrentSituation(factory.getRandomSituation());
 
         Stage stage;
         Parent root;
 
-        logger.info("Condition {}", Main.game.getCrew() <= 0 || Main.game.getFood() <= 0 || Main.game.getFuel() <= 0);
+        logger.info("Condition {}", game.getCrew() <= 0 || game.getFood() <= 0 || game.getFuel() <= 0);
 
-        if(Main.game.getCrew() <= 0 || Main.game.getFood() <= 0 || Main.game.getFuel() <= 0) {
+        if(game.getCrew() <= 0 || game.getFood() <= 0 || game.getFuel() <= 0) {
             logger.info("Game lost branch");
-            Main.game.resetGame();
+            game.resetGame();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("loseScreen.fxml"));
                 root = loader.load();
                 loader.<LoseScreenController>getController();
                 stage = (Stage) crewPastLabel.getScene().getWindow();
                 Scene scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
                 stage.setScene(scene);
                 stage.show();
 
@@ -104,17 +111,18 @@ public class OutcomeController implements Initializable {
                 // logger.debug("The exception: " + e.getMessage());
             }
         }
-        else if(Main.game.getVictoryCounter() != Main.game.getWinGoal()) {
+        else if(game.getVictoryCounter() != game.getWinGoal()) {
             logger.info("Moving...");
-            logger.info("Crew: {}", Main.game.getCrew());
-            logger.info("Food: {}", Main.game.getFood());
-            logger.info("Fuel: {}", Main.game.getFuel());
+            logger.info("Crew: {}", game.getCrew());
+            logger.info("Food: {}", game.getFood());
+            logger.info("Fuel: {}", game.getFuel());
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("situation.fxml"));
                 root = loader.load();
                 loader.<SituationController>getController();
                 stage = (Stage) crewPastLabel.getScene().getWindow();
                 Scene scene = new Scene(root);
+                scene.getStylesheets().add("style.css");
                 stage.setScene(scene);
                 stage.show();
 
@@ -127,7 +135,7 @@ public class OutcomeController implements Initializable {
         }
         else {
             logger.info("Game won branch");
-            Main.game.resetGame();
+            game.resetGame();
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("winScreen.fxml"));
                 root = loader.load();
@@ -148,18 +156,18 @@ public class OutcomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        crewPastLabel.setText(String.valueOf(Main.game.getCrew() - Main.game.getLastChosenOption().getOutcomeCrewDiff()));
-        foodPastLabel.setText(String.valueOf(Main.game.getFood() - Main.game.getLastChosenOption().getOutcomeFoodDiff()));
-        fuelPastLabel.setText(String.valueOf(Main.game.getFuel() - Main.game.getLastChosenOption().getOutcomeFuelDiff()));
+        crewPastLabel.setText(String.valueOf(game.getCrew() - game.getLastChosenOption().getOutcomeCrewDiff()));
+        foodPastLabel.setText(String.valueOf(game.getFood() - game.getLastChosenOption().getOutcomeFoodDiff()));
+        fuelPastLabel.setText(String.valueOf(game.getFuel() - game.getLastChosenOption().getOutcomeFuelDiff()));
 
-        crewDiffLabel.setText(String.valueOf(Main.game.getLastChosenOption().getOutcomeCrewDiff()));
-        foodDiffLabel.setText(String.valueOf(Main.game.getLastChosenOption().getOutcomeFoodDiff()));
-        fuelDiffLabel.setText(String.valueOf(Main.game.getLastChosenOption().getOutcomeFuelDiff()));
+        crewDiffLabel.setText(String.valueOf(game.getLastChosenOption().getOutcomeCrewDiff()));
+        foodDiffLabel.setText(String.valueOf(game.getLastChosenOption().getOutcomeFoodDiff()));
+        fuelDiffLabel.setText(String.valueOf(game.getLastChosenOption().getOutcomeFuelDiff()));
 
-        crewResultLabel.setText(String.valueOf(Main.game.getCrew()));
-        foodResultLabel.setText(String.valueOf(Main.game.getFood()));
-        fuelResultLabel.setText(String.valueOf(Main.game.getFuel()));
+        crewResultLabel.setText(String.valueOf(game.getCrew()));
+        foodResultLabel.setText(String.valueOf(game.getFood()));
+        fuelResultLabel.setText(String.valueOf(game.getFuel()));
 
-        outcomeTextDisplay.setText(Main.game.getLastChosenOption().getOutcomeText());
+        outcomeTextDisplay.setText(game.getLastChosenOption().getOutcomeText());
     }
 }

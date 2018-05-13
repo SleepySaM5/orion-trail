@@ -26,8 +26,14 @@ THE SOFTWARE.
  * #L%
  */
 
+import hu.unideb.sleepysam.model.GameDifficulty;
 import hu.unideb.sleepysam.model.Option;
 import hu.unideb.sleepysam.model.Situation;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static hu.unideb.sleepysam.view.Main.game;
 
 /**
  * This class contains the most important fields and methods for tha game itself.
@@ -37,6 +43,11 @@ public class Game {
      * This object is used to calculate the changes in the resources based on the chosen option for a situation.
      */
     private Option lastChosenOption;
+
+    /**
+     * The current amount of the health resource.
+     */
+    private int health;
 
     /**
      * The current amount of the crew resource.
@@ -88,11 +99,39 @@ public class Game {
      */
     private Situation currentSituation;
 
+    private static List<Situation> situationTemplates;
+
+    private GameDifficulty difficulty;
+
+    public static List<Situation> getSituationTemplates() {
+        return situationTemplates;
+    }
+
+    public static void setSituationTemplates(List<Situation> situationTemplates) {
+        Game.situationTemplates = situationTemplates;
+    }
+
+    public GameDifficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(GameDifficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
     /**
      * Constructor method of the Game class.
      */
     public Game() {
-        currentSituation = SituationFactory.getRandomSituation();
+    }
+
+    public void setChangeGame(Game changeGame) {
+        setCrew(changeGame.getCrew());
+        setFood(changeGame.getFood());
+        setFuel(changeGame.getFuel());
+        setCurrentSituation(changeGame.currentSituation);
+        setWinGoal(changeGame.winGoal);
+        setLastChosenOption(changeGame.lastChosenOption);
     }
 
     /**
@@ -237,7 +276,7 @@ public class Game {
     }
 
     /**
-     * This method applies the changes to the current amount of resources based on the {@link hu.unideb.sleepysam.model.Option} chosen.
+     * This method applies the changes to the current amount of resources based on the {@link Option} chosen.
      * See more on {@link Option#getOutcomeCrewDiff()}.
      * @param chosenOption the chosenOption
      */
@@ -284,5 +323,23 @@ public class Game {
      */
     public int getStartFood() {
         return startFood;
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "lastChosenOption=" + lastChosenOption +
+                ", health=" + health +
+                ", crew=" + crew +
+                ", fuel=" + fuel +
+                ", food=" + food +
+                ", startCrew=" + startCrew +
+                ", startFuel=" + startFuel +
+                ", startFood=" + startFood +
+                ", winGoal=" + winGoal +
+                ", victoryCounter=" + victoryCounter +
+                ", currentSituation=" + currentSituation +
+                ", difficulty=" + difficulty +
+                '}';
     }
 }
