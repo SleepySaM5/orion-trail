@@ -56,7 +56,7 @@ public class SituationFactory {
                     -1, -1, -1),
             new Option("Védekezés!", "Sikerült elkerülni az ellenséges hajó támadásait.",
                     -3, 0, 0),
-            new Option("Menekülés!", "It also flee.",
+            new Option("Menekülés!", "Sikeresen elmenekültél.",
                     0, 0, 0));
 
     private String getRandomShipName() {

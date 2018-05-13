@@ -137,4 +137,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Savegame files
+*.save
+
 # End of https://www.gitignore.io/api/java,maven,linux,windows,intellij
