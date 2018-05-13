@@ -31,6 +31,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import hu.unideb.sleepysam.controller.Game;
+import hu.unideb.sleepysam.controller.LoadManager;
 import hu.unideb.sleepysam.controller.SituationFactory;
 import hu.unideb.sleepysam.model.FlavorTextTemplate;
 import hu.unideb.sleepysam.model.Option;
@@ -56,18 +57,15 @@ import java.util.List;
 public class Main extends Application {
 
     public static Game game;
-    private final String situationsDataFilePath = "situations.data";
-    private final String shipPrefixesFilePath = "shipPrefixes.data";
-    private final String shipSuffixesFilePath = "shipSuffixes.data";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
-        loadSituationsFromJson();
-        loadShipNames();
+        LoadManager loadManager = new LoadManager();
+        loadManager.loadSituationsFromJson();
+        loadManager.loadShipNames();
         game = new Game();
         game.setDifficulty(GameDifficulty.NORMAL);
-        SituationFactory factory = new SituationFactory();
+        SituationFactory factory = new SituationFactory(game);
         game.setCurrentSituation(factory.getRandomSituation());
         testFunction();
 
@@ -80,76 +78,6 @@ public class Main extends Application {
         logger.info("Starting program");
         game.resetGame();
         primaryStage.show();
-    }
-
-    private void loadShipNames(){
-        ArrayList<String> shipNamePrefixes = new ArrayList<>();
-        ArrayList<String> shipNameSuffixes = new ArrayList<>();
-
-        String jsonContents = new String();
-
-        try {
-            InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(shipPrefixesFilePath);
-            jsonContents = IOUtils.toString(this.getClass().getClassLoader().getResourceAsStream(shipPrefixesFilePath),"UTF-8");
-
-            GsonBuilder builder = new GsonBuilder();
-            Gson gson = builder.create();
-            Type listType = new TypeToken<ArrayList<String>>(){}.getType();
-            shipNamePrefixes = gson.fromJson(jsonContents, listType);
-
-            //logger.info("Ship names pref: " + shipNamePrefixes);
-        } catch (IOException e) {
-            logger.error(e.getMessage());
-        } catch (Exception e) {
-            logger.error("Exception while reading filenames");
-        }
-        //logger.info("Ship names pref: " + jsonContents);
-        logger.info("Ship names pref: " + shipNamePrefixes);
-
-
-        try {
-            InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(shipSuffixesFilePath);
-            jsonContents = IOUtils.toString(this.getClass().getClassLoader().getResourceAsStream(shipSuffixesFilePath),"UTF-8");
-            GsonBuilder builder = new GsonBuilder();
-            Gson gson = builder.create();
-            Type listType = new TypeToken<ArrayList<String>>(){}.getType();
-            shipNameSuffixes = gson.fromJson(jsonContents, listType);
-
-            logger.info("Ship names suf: " + shipNameSuffixes);
-        } catch (IOException e) {
-            logger.error(e.getMessage());
-        } catch (Exception e) {
-            logger.error("Exception while reading filenames");
-        }
-        //SSlogger.info("Ship names pref: " + jsonContents);
-        logger.info("Ship names suff: " + shipNameSuffixes);
-
-        SituationFactory.setShipPrefixes(shipNamePrefixes);
-        SituationFactory.setShipSuffixes(shipNameSuffixes);
-    }
-
-    private void loadSituationsFromJson() {
-        String result = "";
-        try {
-            InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(situationsDataFilePath);
-            result = IOUtils.toString(this.getClass().getClassLoader().getResourceAsStream(situationsDataFilePath),"UTF-8");
-        }
-        catch(IOException e){
-            System.out.println("IO Exception");
-            logger.error("Exception while reading {}", situationsDataFilePath);
-            logger.error(e.getMessage());
-        }
-        //logger.info("The read situations: " + result);
-
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        Type listType = new TypeToken<ArrayList<Situation>>(){}.getType();
-        List<Situation> situations = gson.fromJson(result, listType);
-        //logger.info("Deserialized all situations: " + situations);
-
-        // shuffles situations
-        Collections.shuffle(situations);
-        Game.setSituationTemplates(situations);
     }
 
     public void testFunction() {

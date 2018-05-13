@@ -83,7 +83,7 @@ public class OutcomeController implements Initializable {
 
     @FXML
     public void handleNextButton() {
-        SituationFactory factory = new SituationFactory();
+        SituationFactory factory = new SituationFactory(game);
         game.setCurrentSituation(factory.getRandomSituation());
 
         Stage stage;
@@ -117,6 +117,8 @@ public class OutcomeController implements Initializable {
             logger.info("Food: {}", game.getFood());
             logger.info("Fuel: {}", game.getFuel());
             try {
+                game.incrementVictoryCounter();
+
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("situation.fxml"));
                 root = loader.load();
                 loader.<SituationController>getController();

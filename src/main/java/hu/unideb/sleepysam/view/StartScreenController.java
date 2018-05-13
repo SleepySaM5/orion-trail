@@ -126,13 +126,16 @@ public class StartScreenController implements Initializable {
             logger.error("IOException occured while reading: {}",  selectedFile.getPath());
             logger.error(e.getMessage());
         }
-        System.out.println(jsonContents);
+        System.out.println("A jsoncontents: " + jsonContents);
 
         Game loadGame;
         Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create();
         loadGame = gson.fromJson(jsonContents, Game.class);
 
-        game.setChangeGame(loadGame);
+        logger.info("a mentett jatek: " + jsonContents);
+
+        //game.setChangeGame(loadGame);
+        game = loadGame;
         System.out.println("currentsit : " + game.getCurrentSituation().getFlavorText());
 
         Parent root;

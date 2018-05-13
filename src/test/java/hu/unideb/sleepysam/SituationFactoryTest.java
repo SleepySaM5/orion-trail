@@ -26,8 +26,12 @@ THE SOFTWARE.
  * #L%
  */
 
+import hu.unideb.sleepysam.controller.Game;
+import hu.unideb.sleepysam.controller.LoadManager;
 import hu.unideb.sleepysam.controller.SituationFactory;
+import hu.unideb.sleepysam.model.GameDifficulty;
 import hu.unideb.sleepysam.model.Situation;
+import hu.unideb.sleepysam.view.Main;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -35,14 +39,22 @@ import org.junit.Test;
  * Created by vtibi on 5/29/2017.
  */
 public class SituationFactoryTest {
+
+    public static Game game;
     @Test
     public void generatedSituationsAreValid() {
         Situation testSituation;
-        SituationFactory factory = new SituationFactory();
+        LoadManager loadManager = new LoadManager();
+        loadManager.loadShipNames();
+        game = new Game();
+        game.setDifficulty(GameDifficulty.NORMAL);
+        loadManager.loadSituationsFromJson();
+
+        SituationFactory factory = new SituationFactory(game);
         testSituation = factory.getRandomSituation();
-        // Assert.assertNotEquals(null, testSituation.getFlavorTextTemplate().getPattern());
-        Assert.assertNotEquals(0, testSituation.getOption1().getOptionText().length());
-        Assert.assertNotEquals(0, testSituation.getOption2().getOptionText().length());
-        Assert.assertNotEquals(0, testSituation.getOption3().getOptionText().length());
+        Assert.assertNotEquals(testSituation.getFlavorTextTemplate().getPattern().length(), 0);
+        Assert.assertNotEquals(testSituation.getOption1().getOptionText().length(), 0);
+        Assert.assertNotEquals(testSituation.getOption2().getOptionText().length(), 0);
+        Assert.assertNotEquals(testSituation.getOption3().getOptionText().length(), 0);
     }
 }

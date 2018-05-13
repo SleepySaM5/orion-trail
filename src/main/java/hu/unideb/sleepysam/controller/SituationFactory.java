@@ -46,6 +46,12 @@ public class SituationFactory {
 
     // private static
 
+    private Game game;
+
+    public SituationFactory(Game myGame) {
+        this.game = myGame;
+    }
+
     private static ArrayList<String> shipPrefixes = new ArrayList<>();;
     private static ArrayList<String> shipSuffixes = new ArrayList<>();;
 
@@ -77,6 +83,7 @@ public class SituationFactory {
      * @return the random situation
      */
     public Situation getRandomSituation() {
+        logger.info("Barmit");
         logger.info("Getrandom situation, game: " + game.toString());
 
         Situation situation = new Situation();

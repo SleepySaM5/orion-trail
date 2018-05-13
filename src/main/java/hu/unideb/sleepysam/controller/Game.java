@@ -86,7 +86,7 @@ public class Game {
     /**
      * The counter that is to be incremented towards the goal of the game.
      */
-    private int victoryCounter = 0;
+    private int victoryCounter = 1;
 
     /**
      * This object is used to display a situation on each screen after pressing the new game button on the starting screen.

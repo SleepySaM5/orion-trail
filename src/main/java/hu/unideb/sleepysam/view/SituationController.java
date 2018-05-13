@@ -27,8 +27,7 @@ THE SOFTWARE.
  * #L%
  */
 
-import hu.unideb.sleepysam.controller.LoadManager;
-import hu.unideb.sleepysam.model.Situation;
+import hu.unideb.sleepysam.controller.SaveManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -92,7 +91,7 @@ public class SituationController implements Initializable {
 
     @FXML
     private void handleSaveGameButton() {
-        LoadManager saveGameManager = new LoadManager();
+        SaveManager saveGameManager = new SaveManager();
 
         saveGameManager.saveGame();
 
@@ -127,10 +126,11 @@ public class SituationController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        game.incrementVictoryCounter();
 
         System.out.println("The current sit: " + game.getCurrentSituation().toString());
         System.out.println("The current sit: " + game.getCurrentSituation().getFlavorTextTemplate().toString());
+
+        logger.debug("loaded game day: " + game.getVictoryCounter());
 
         positionLabel.setText(String.valueOf(game.getVictoryCounter()));
         winGoalLabel.setText(" / " + String.valueOf(game.getWinGoal()));
