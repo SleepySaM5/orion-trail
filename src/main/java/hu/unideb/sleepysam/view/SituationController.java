@@ -127,9 +127,6 @@ public class SituationController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println("The current sit: " + game.getCurrentSituation().toString());
-        System.out.println("The current sit: " + game.getCurrentSituation().getFlavorTextTemplate().toString());
-
         logger.debug("loaded game day: " + game.getVictoryCounter());
 
         positionLabel.setText(String.valueOf(game.getVictoryCounter()));

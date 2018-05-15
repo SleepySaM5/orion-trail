@@ -110,7 +110,11 @@ public class SituationFactory {
         } else if (game.getDifficulty() == GameDifficulty.HARD) {
             // Create FIGHT situation
             if (game.getVictoryCounter() % 2 == 0) {
-
+                situation = new Situation(fightSituation);
+                FlavorTextTemplate flavorTextTemplate = new
+                        FlavorTextTemplate(fightSituation.getFlavorTextTemplate().getPattern(),
+                        getRandomShipName());
+                situation.getFlavorText();
             }
             // Create STORY situation
             else {

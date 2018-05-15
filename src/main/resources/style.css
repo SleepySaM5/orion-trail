@@ -1,6 +1,22 @@
 .root {
     -fx-font-size: 10pt;
     -fx-font-family: "Exo2-Regular";
+    /*
     -fx-base: rgb(153, 204, 255);
-    -fx-background: rgb(225, 228, 203);
+    -fx-background: rgb(225, 228, 203);*/
+}
+
+#welcomeScreenBorderPane {
+    -fx-background-image: url("stardust_img.png");
+}
+
+
+.startScreen, .situation {
+    -fx-font-fill: #dfdfdf;
+}
+
+
+#startGameButton{
+    -fx-font-family: "Exo2-Regular";
+    -fx-font-size: 16pt;
 }

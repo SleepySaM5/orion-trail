@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.sleepysam.view.WelcomeScreenController">
-   <children>
-      <Button fx:id="startGameButton" layoutX="256.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleStartGameButton" text="Játék indítása" />
-   </children>
-</AnchorPane>
+<BorderPane fx:id="welcomeScreenBorderPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.sleepysam.view.WelcomeScreenController">
+   <bottom>
+      <Button fx:id="startGameButton" mnemonicParsing="false" onAction="#handleStartGameButton" style="-fx-background-color: transparent;" text="Játék Indítása" textFill="WHITE" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="50.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="Segoe UI Bold" size="16.0" />
+         </font>
+         <effect>
+            <Blend mode="ADD" />
+         </effect></Button>
+   </bottom>
+   <center>
+      <ImageView fitHeight="150.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@orion_trail_titlescreen_edit.png" />
+         </image>
+      </ImageView>
+   </center>
+</BorderPane>

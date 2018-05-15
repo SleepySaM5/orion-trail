@@ -291,6 +291,11 @@ public class Game {
         setFood(startFood);
         setCrew(startCrew);
         setFuel(startFuel);
+        setVictoryCounter(1);
+    }
+
+    public void setVictoryCounter(int victoryCounter) {
+        this.victoryCounter = victoryCounter;
     }
 
     /**

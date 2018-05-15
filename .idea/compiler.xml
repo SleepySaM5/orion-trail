@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="prk_oregon" target="1.9" />
-      <module name="prt-oregon-trail-extended-cut" target="1.9" />
+      <module name="prt-oregon-trail-extended-cut" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

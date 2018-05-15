@@ -69,6 +69,7 @@ public class StartScreenController implements Initializable {
         logger.info("New game started!");
         Stage stage;
         Parent root;
+        Main.game.resetGame();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/situation.fxml"));
             root = loader.load();
@@ -166,6 +167,6 @@ public class StartScreenController implements Initializable {
         Main.game.setWinGoal(5);
         Main.game.resetGame();
 
-        currentDifficultyLabel.setText("Könnyű");
+        currentDifficultyLabel.setText("Normális");
     }
 }

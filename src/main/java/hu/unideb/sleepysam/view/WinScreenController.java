@@ -36,6 +36,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static hu.unideb.sleepysam.view.Main.game;
 import static hu.unideb.sleepysam.view.Main.logger;
 
 /**
@@ -48,6 +49,7 @@ public class WinScreenController {
     @FXML
     private void handleStartGameAgainButton () {
         logger.info("startGameAgain button pressed...");
+
         Stage stage;
         Parent root;
         try {
