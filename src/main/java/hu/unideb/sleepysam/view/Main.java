@@ -67,7 +67,6 @@ public class Main extends Application {
         game.setDifficulty(GameDifficulty.NORMAL);
         SituationFactory factory = new SituationFactory(game);
         game.setCurrentSituation(factory.getRandomSituation());
-        // testFunction();
 
         Parent root = FXMLLoader.load((getClass().getClassLoader().getResource("welcomeScreen.fxml")));
         Scene scene = new Scene(root);
@@ -108,10 +107,6 @@ public class Main extends Application {
         Situation asdfSituation = new Situation();
         asdfSituation = testGson.fromJson(testJson, Situation.class);
         System.out.println(asdfSituation);
-    }
-
-    private void appFont(Stage stage, Scene scene) {
-        Font.loadFont(getClass().getResourceAsStream("Exo2-Regular.ttf"), 18);
     }
 
     public static Logger logger = LoggerFactory.getLogger(Main.class);

@@ -37,14 +37,11 @@ public class LoadManager {
             Gson gson = builder.create();
             Type listType = new TypeToken<ArrayList<String>>(){}.getType();
             shipNamePrefixes = gson.fromJson(jsonContents, listType);
-
-            //logger.info("Ship names pref: " + shipNamePrefixes);
         } catch (IOException e) {
             logger.error(e.getMessage());
         } catch (Exception e) {
             logger.error("Exception while reading filenames");
         }
-        //logger.info("Ship names pref: " + jsonContents);
         logger.info("Ship names pref: " + shipNamePrefixes);
 
 
@@ -62,7 +59,6 @@ public class LoadManager {
         } catch (Exception e) {
             logger.error("Exception while reading filenames");
         }
-        //SSlogger.info("Ship names pref: " + jsonContents);
         logger.info("Ship names suff: " + shipNameSuffixes);
 
         SituationFactory.setShipPrefixes(shipNamePrefixes);

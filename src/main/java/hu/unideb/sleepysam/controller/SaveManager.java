@@ -9,12 +9,9 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import hu.unideb.sleepysam.view.StartScreenController;
-import javafx.stage.FileChooser;
 import org.apache.commons.io.FileUtils;
 
 import static hu.unideb.sleepysam.view.Main.game;
-import static hu.unideb.sleepysam.view.Main.main;
 
 public class SaveManager {
 
