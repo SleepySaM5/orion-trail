@@ -41,17 +41,17 @@ public class Option {
     private final String outcomeText;
 
     /**
-     * The change in the {@link hu.unideb.sleepysam.controller.Game#fuel} resource based on the chosen option.
+     * The change in the {@link Game#fuel} resource based on the chosen option.
      */
     private final int outcomeFuelDiff;
 
     /**
-     * The change in the {@link hu.unideb.sleepysam.controller.Game#food} resource based on the chosen option.
+     * The change in the {@link Game#food} resource based on the chosen option.
      */
     private final int outcomeFoodDiff;
 
     /**
-     * The change in the {@link hu.unideb.sleepysam.controller.Game#crew} resource based on the chosen option.
+     * The change in the {@link Game#crew} resource based on the chosen option.
      */
     private final int outcomeCrewDiff;
 

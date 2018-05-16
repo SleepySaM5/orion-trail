@@ -26,17 +26,11 @@ THE SOFTWARE.
  * #L%
  */
 
-import hu.unideb.sleepysam.model.FlavorTextTemplate;
-import hu.unideb.sleepysam.model.GameDifficulty;
-import hu.unideb.sleepysam.model.Option;
-import hu.unideb.sleepysam.model.Situation;
+import hu.unideb.sleepysam.model.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static hu.unideb.sleepysam.view.Main.game;
 import static hu.unideb.sleepysam.view.Main.logger;
 
 /**

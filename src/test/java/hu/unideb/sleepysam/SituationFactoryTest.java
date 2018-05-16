@@ -26,12 +26,11 @@ THE SOFTWARE.
  * #L%
  */
 
-import hu.unideb.sleepysam.controller.Game;
+import hu.unideb.sleepysam.model.Game;
 import hu.unideb.sleepysam.controller.LoadManager;
 import hu.unideb.sleepysam.controller.SituationFactory;
 import hu.unideb.sleepysam.model.GameDifficulty;
 import hu.unideb.sleepysam.model.Situation;
-import hu.unideb.sleepysam.view.Main;
 import org.junit.Assert;
 import org.junit.Test;
 

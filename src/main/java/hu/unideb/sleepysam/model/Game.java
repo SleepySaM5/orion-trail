@@ -1,4 +1,4 @@
-package hu.unideb.sleepysam.controller;
+package hu.unideb.sleepysam.model;
 
 /*-
  * #%L
@@ -26,14 +26,9 @@ THE SOFTWARE.
  * #L%
  */
 
-import hu.unideb.sleepysam.model.GameDifficulty;
-import hu.unideb.sleepysam.model.Option;
-import hu.unideb.sleepysam.model.Situation;
+import hu.unideb.sleepysam.controller.SituationFactory;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static hu.unideb.sleepysam.view.Main.game;
 
 /**
  * This class contains the most important fields and methods for tha game itself.

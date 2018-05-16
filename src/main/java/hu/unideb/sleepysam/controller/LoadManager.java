@@ -3,6 +3,7 @@ package hu.unideb.sleepysam.controller;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import hu.unideb.sleepysam.model.Game;
 import hu.unideb.sleepysam.model.Situation;
 import hu.unideb.sleepysam.view.Main;
 import org.apache.commons.io.IOUtils;

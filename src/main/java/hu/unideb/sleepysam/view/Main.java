@@ -29,8 +29,7 @@ THE SOFTWARE.
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import hu.unideb.sleepysam.controller.Game;
+import hu.unideb.sleepysam.model.Game;
 import hu.unideb.sleepysam.controller.LoadManager;
 import hu.unideb.sleepysam.controller.SituationFactory;
 import hu.unideb.sleepysam.model.FlavorTextTemplate;
@@ -41,17 +40,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Main extends Application {

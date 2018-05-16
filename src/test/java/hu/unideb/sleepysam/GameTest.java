@@ -26,7 +26,7 @@ THE SOFTWARE.
  * #L%
  */
 
-import hu.unideb.sleepysam.controller.Game;
+import hu.unideb.sleepysam.model.Game;
 import hu.unideb.sleepysam.model.Option;
 import org.junit.Assert;
 import org.junit.Test;
