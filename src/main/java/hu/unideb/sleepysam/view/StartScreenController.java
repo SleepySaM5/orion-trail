@@ -94,7 +94,7 @@ public class StartScreenController implements Initializable {
         Main.game.resetGame();
         game.setDifficulty(GameDifficulty.NORMAL);
 
-        currentDifficultyLabel.setText("Közepes");
+        currentDifficultyLabel.setText("Normális");
     }
 
     @FXML

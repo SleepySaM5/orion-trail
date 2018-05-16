@@ -59,11 +59,11 @@ public class SituationFactory {
             new FlavorTextTemplate("A radar befogta a %s jelét. Izzítja a lézerágyúit, készülj a csatára!",
                     getRandomShipName()),
             new Option("Támadás!", "Sikeresen megtámadtad az ellenséges hajót.",
-                    -1, -1, -1),
+                    -2, -2, -2),
             new Option("Védekezés!", "Sikerült elkerülni az ellenséges hajó támadásait.",
                     -3, 0, 0),
             new Option("Menekülés!", "Sikeresen elmenekültél.",
-                    0, 0, 0));
+                    -3, 0, 0));
 
     private String getRandomShipName() {
         logger.info("Ship prefixes: " + shipPrefixes.toString());

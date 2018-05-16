@@ -120,15 +120,6 @@ public class Game {
     public Game() {
     }
 
-    public void setChangeGame(Game changeGame) {
-        setCrew(changeGame.getCrew());
-        setFood(changeGame.getFood());
-        setFuel(changeGame.getFuel());
-        setCurrentSituation(changeGame.currentSituation);
-        setWinGoal(changeGame.winGoal);
-        setLastChosenOption(changeGame.lastChosenOption);
-    }
-
     /**
      * Getter method for the currentSituation.
      * @return the currentSituation
